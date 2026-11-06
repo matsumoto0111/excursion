@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大人の遠足 しおり | ベルサンテスタッフ ほいコレ事業部</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            amber: '#F59E0B',
+                            dark: '#1E293B',
+                            cream: '#FFFBEB',
+                            accent: '#EF4444'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', 'sans-serif'],
+                        en: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 24px;
+            left: 20px;
+            width: 3px;
+            background: #E2E8F0;
+            z-index: 0;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased pb-20">
+
+    <!-- Header / Hero Section -->
+    <header class="relative bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 text-white pt-10 pb-16 px-4 rounded-b-3xl shadow-lg overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-yellow-300/20 rounded-full blur-xl"></div>
+        
+        <div class="max-w-xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold tracking-wide uppercase mb-3 border border-white/30">
+                <i class="fa-solid font-en">HOICOLLE EXCURSION 2026</i>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-black tracking-tight leading-snug mb-2">
+                ベルサンテスタッフ<br>ほいコレ事業部 大人の遠足
+            </h1>
+            <p class="text-amber-100 font-bold text-sm sm:text-base mb-6">
+                ✨ 本気で遊んで、しっかり食べて、南大阪を満喫！ ✨
+            </p>
+
+            <!-- Event Card Date & Route -->
+            <div class="glass-card text-slate-800 rounded-2xl p-4 shadow-xl border border-white/50 text-left">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400 font-bold">開催日時</div>
+                            <div class="text-base sm:text-lg font-black text-slate-900">11月28日 (土)</div>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-700 font-bold text-xs rounded-full">
+                        日帰り車旅
+                    </span>
+                </div>
+                <!-- Route Summary Line -->
+                <div class="text-xs text-slate-500 font-bold mb-2">🚗 ピックアップルート</div>
+                <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs sm:text-sm font-bold">
+                    <span class="text-slate-800">御幣島<br><span class="text-orange-600 text-xs">08:15</span></span>
+                    <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    <span class="text-slate-800">三国<br><span class="text-orange-600 text-xs">08:35 (+2)</span></span>
+                    <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    <span class="text-slate-800">今里<br><span class="text-orange-600 text-xs">09:15 (+1)</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="sticky top-0 z-30 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-xl mx-auto flex justify-around text-sm font-bold text-slate-600">
+            <a href="#schedule" class="flex-1 text-center py-3 border-b-2 border-orange-500 text-orange-600 transition">
+                <i class="fa-solid fa-clock mr-1"></i> タイムライン
+            </a>
+            <a href="#checklist" class="flex-1 text-center py-3 border-b-2 border-transparent hover:text-orange-600 transition">
+                <i class="fa-solid fa-list-check mr-1"></i> 持ち物チェック
+            </a>
+            <a href="#notes" class="flex-1 text-center py-3 border-b-2 border-transparent hover:text-orange-600 transition">
+                <i class="fa-solid fa-circle-info mr-1"></i> 注意事項
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="max-w-xl mx-auto px-4 pt-6 space-y-8">
+
+        <!-- SECTION 1: Schedule Timeline -->
+        <section id="schedule" class="scroll-mt-16">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                    <span class="w-3 h-7 bg-orange-500 rounded-full inline-block"></span>
+                    本日のスケジュール
+                </h2>
+                <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">全10工程</span>
+            </div>
+
+            <div class="relative timeline-line space-y-4">
+
+                <!-- Timeline Item 1 -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">発車</span>
+                            <span class="text-xs font-black text-orange-600 font-en">08:15</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900">御幣島を出発</h3>
+                        <p class="text-xs text-slate-500 mt-1">いよいよ大人の遠足スタート！ドライバー様安全運転で！</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">合流 1</span>
+                            <span class="text-xs font-black text-orange-600 font-en">08:35</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900">三国で 2名 ピックアップ</h3>
+                        <p class="text-xs text-slate-500 mt-1">無事に合流して賑やかさ倍増！今里経由で南大阪を目指します。</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-orange-100 text-orange-700 rounded">全員合流！</span>
+                            <span class="text-xs font-black text-orange-600 font-en">09:15</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900">今里で 1名 ピックアップ</h3>
+                        <p class="text-xs text-slate-500 mt-1">メンバー全員そろいました！阪神高速〜阪和道で一気に関西サイクルスポーツセンターへ 🚗💨</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 (Spot 1) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-bicycle"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border-2 border-orange-200 flex-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">SPOT 1</div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-orange-100 text-orange-800 rounded">アクティビティ</span>
+                            <span class="text-xs font-black text-orange-600 font-en">10:15 - 12:45</span>
+                        </div>
+                        <h3 class="font-black text-lg text-slate-900">① 関西サイクルスポーツセンター</h3>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            変わり種自転車や陸上トラックで大人も全力サイクリング！汗をかいて日頃の運動不足を解消しよう！
+                        </p>
+                        <!-- Restaurant Sub-info -->
+                        <div class="mt-3 bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-xs">
+                            <div class="font-bold text-amber-900 mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-utensils text-amber-600"></i> 園内ランチ情報（当日の状況で判断）
+                            </div>
+                            <p class="text-amber-800 text-[11px] leading-tight mb-2">
+                                園内レストラン「シルバー」では、から揚げ定食（1,250円）やとんかつ定食（1,350円）、オムライスやラーメン等があり、園内で昼食をとることも可能です！
+                            </p>
+                            <a href="https://www.kcsc.or.jp/info/restaurant" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-orange-600 bg-white px-2.5 py-1 rounded-lg border border-orange-200 hover:bg-orange-50 transition">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> レストラン詳細・メニュー
+                            </a>
+                        </div>
+                        <!-- Official HP Link -->
+                        <div class="mt-3 pt-2 border-t border-slate-100 flex justify-end">
+                            <a href="https://www.kcsc.or.jp/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 hover:underline">
+                                <i class="fa-solid fa-globe"></i> 公式HPを見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center font-bold text-sm shrink-0 z-10">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 flex-1">
+                        <div class="flex justify-between items-center mb-0.5">
+                            <span class="text-xs font-bold text-slate-500">移動 ＆ 昼食</span>
+                            <span class="text-xs font-bold text-slate-500 font-en">12:45 - 13:30</span>
+                        </div>
+                        <p class="text-xs text-slate-700 font-bold">昼食タイム 🍴（流動的対応）</p>
+                        <p class="text-xs text-slate-500 mt-0.5">
+                            ※園内でのランチ、移動中の沿線レストラン、またはハーベストの丘到着後など、お腹の減り具合や当日の流れに合わせて柔軟に決定！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 (Spot 2) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border-2 border-amber-200 flex-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">SPOT 2</div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">散策・買い物</span>
+                            <span class="text-xs font-black text-amber-600 font-en">13:30 - 16:30</span>
+                        </div>
+                        <h3 class="font-black text-lg text-slate-900">② ハーベストの丘</h3>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            動物ふれあいや季節の花々を満喫 🌸 直売所で自家製ソーセージや地ビール、お菓子などのお買い物も満喫！
+                        </p>
+                        <!-- Official HP Link -->
+                        <div class="mt-3 pt-2 border-t border-slate-100 flex justify-end">
+                            <a href="https://farm.or.jp/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:underline">
+                                <i class="fa-solid fa-globe"></i> 公式HPを見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 (Takeout Sweets) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-fish"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border-2 border-rose-200 flex-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">TAKE OUT</div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-rose-100 text-rose-800 rounded">夕方の名物</span>
+                            <span class="text-xs font-black text-rose-600 font-en">17:00 - 17:20</span>
+                        </div>
+                        <h3 class="font-black text-lg text-slate-900">③ 日本一たい焼き 富田林店</h3>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            大人気の焼きたたい焼きをテイクアウト！おうちへ持ち帰って食後の楽しみに 🐟
+                        </p>
+                        <!-- Official HP Link -->
+                        <div class="mt-3 pt-2 border-t border-slate-100 flex justify-end">
+                            <a href="https://www.nipponichitaiyaki.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:underline">
+                                <i class="fa-solid fa-globe"></i> 公式HPを見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 8 (Rest & Market) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border-2 border-emerald-200 flex-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">お腹調整</div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">買い物＆散策</span>
+                            <span class="text-xs font-black text-emerald-600 font-en">17:25 - 17:55</span>
+                        </div>
+                        <h3 class="font-black text-lg text-slate-900">④ 道の駅 しらとりの郷・羽曳野</h3>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            広大な敷地をぶらぶら歩いて焼肉へ向けてお腹をすかせる！地元の新鮮野菜や南大阪ワインのお買い物も◎
+                        </p>
+                        <!-- Official HP Link -->
+                        <div class="mt-3 pt-2 border-t border-slate-100 flex justify-end">
+                            <a href="https://www.city.habikino.lg.jp/soshiki/shoko_kanko/shiratorinosato/index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline">
+                                <i class="fa-solid fa-globe"></i> 公式HPを見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 9 (Yakiniku Dinner) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-lg ring-4 ring-red-100">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <div class="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-2xl shadow-md border-2 border-red-300 flex-1 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">DINNER</div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-red-200 text-red-900 rounded">メインディナー</span>
+                            <span class="text-xs font-black text-red-600 font-en">18:10 - 20:10</span>
+                        </div>
+                        <h3 class="font-black text-xl text-red-950">⑤ 富田林 焼肉ディナー 🥩</h3>
+                        <p class="text-xs text-slate-700 font-bold mt-1">YAKINIKUEN 忍鬨（ニング）富田林店 など</p>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            腹ペコ状態で上質なお肉を堪能！名物の厚切りネギ包みタンなどで遠足の最高の締めくくり！
+                        </p>
+                        <!-- Official HP / Tabelog Link -->
+                        <div class="mt-3 pt-2 border-t border-red-200/60 flex justify-end">
+                            <a href="https://ning-tondabayashi.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-red-700 hover:underline">
+                                <i class="fa-solid fa-globe"></i> 店舗サイトを見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 10 (Return) -->
+                <div class="relative flex gap-4 items-start pl-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 shadow-md">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">帰路</span>
+                            <span class="text-xs font-black text-slate-700 font-en">20:10 - 21:25</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900">順次解散（今里 → 三国 → 御幣島）</h3>
+                        <p class="text-xs text-slate-500 mt-1">お疲れ様でした！お家に帰ってからトースターで温め直したたい焼きをパクリ 😋</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: Checklist -->
+        <section id="checklist" class="scroll-mt-16">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                    <span class="w-3 h-7 bg-amber-500 rounded-full inline-block"></span>
+                    持ち物チェックリスト
+                </h2>
+                <button onclick="resetChecklist()" class="text-xs font-bold text-slate-400 hover:text-slate-600 flex items-center gap-1">
+                    <i class="fa-solid fa-rotate-right"></i> リセット
+                </button>
+            </div>
+
+            <!-- Progress Card -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-4">
+                <div class="flex justify-between items-center text-xs font-bold mb-2">
+                    <span class="text-slate-600">準備の進捗状況</span>
+                    <span id="progress-text" class="text-orange-600 font-en text-sm">0 / 14 (0%)</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-3 rounded-full transition-all duration-300 w-0"></div>
+                </div>
+            </div>
+
+            <!-- Category Tabs / Checklist Items -->
+            <div class="space-y-4" id="checklist-container">
+                <!-- Javascript will render checklist here -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: Notes & Rules -->
+        <section id="notes" class="scroll-mt-16">
+            <h2 class="text-xl font-black text-slate-900 flex items-center gap-2 mb-4">
+                <span class="w-3 h-7 bg-rose-500 rounded-full inline-block"></span>
+                遠足のポイント ＆ ルール
+            </h2>
+
+            <div class="grid gap-3">
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-amber-200 text-amber-800 flex items-center justify-center shrink-0 font-bold">
+                        <i class="fa-solid fa-fire font-xs"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-amber-950">たい焼きの絶品温め直し方</h4>
+                        <p class="text-xs text-amber-800 mt-0.5 leading-relaxed">
+                            電子レンジで20〜30秒温めた後、オーブントースターで皮がパリッとするまで焼き直すと焼き立ての旨さが復活します！
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 p-4 rounded-2xl border border-orange-200 flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-orange-200 text-orange-800 flex items-center justify-center shrink-0 font-bold">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-orange-950">本気の運動対策！</h4>
+                        <p class="text-xs text-orange-800 mt-0.5 leading-relaxed">
+                            関西サイクルスポーツセンターは本気で体を動かします！スニーカーと動きやすい服装で参戦してください。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-2xl border border-blue-200 flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center shrink-0 font-bold">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-blue-950">割り勘用の小銭・千円札</h4>
+                        <p class="text-xs text-blue-800 mt-0.5 leading-relaxed">
+                            高速代や駐車場代、自販機用に細かめのお金（千円札・100円玉）を用意しておくとスムーズです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-400 mt-12 mb-4 font-bold">
+        ベルサンテスタッフ ほいコレ事業部 2026<br>
+        〜 Safe Drive & Have Fun! 〜
+    </footer>
+
+    <!-- Interactive Script for Checklist -->
+    <script>
+        const checklistData = [
+            {
+                category: "必須アイテム・貴重品",
+                icon: "fa-shield-halved",
+                items: [
+                    { id: "c1", label: "現金（小銭・千円札多め）", sub: "駐車場代・高速代の割り勘や自販機用" },
+                    { id: "c2", label: "健康保険証", sub: "万が一の怪我や急な体調不良に備えて" },
+                    { id: "c3", label: "モバイルバッテリー ＆ ケーブル", sub: "写真撮影やドライブ中の使用に" }
+                ]
+            },
+            {
+                category: "運動アクティビティ",
+                icon: "fa-person-running",
+                items: [
+                    { id: "c4", label: "動きやすい服装 ＆ スニーカー", sub: "変わり種自転車を本気で漕げる格好" },
+                    { id: "c5", label: "タオル・ハンカチ", sub: "汗拭き・手洗い用に複数枚あると安心" },
+                    { id: "c6", label: "着替え（Tシャツ・靴下等）", sub: "汗をかいた後や焼肉前のリフレッシュ用" },
+                    { id: "c7", label: "飲み物（ペットボトル・水筒）", sub: "運動中・ドライブ中の水分補給" }
+                ]
+            },
+            {
+                category: "車移動・ドライブ快適グッズ",
+                icon: "fa-car-side",
+                items: [
+                    { id: "c8", label: "ウェットティッシュ ＆ 除菌シート", sub: "車内でおやつを食べるときや焼肉前後に" },
+                    { id: "c9", label: "ゴミ袋（ビニール袋数枚）", sub: "車内ゴミ用・濡れた衣類入れ用" },
+                    { id: "c10", label: "車内でつまめるお菓子・軽食", sub: "移動中のおやつ＆小腹満たし" },
+                    { id: "c11", label: "酔い止め薬・常備薬", sub: "車酔い対策や頭痛薬など" }
+                ]
+            },
+            {
+                category: "買い物・グルメ",
+                icon: "fa-basket-shopping",
+                items: [
+                    { id: "c12", label: "大きめのエコバッグ / 保冷バッグ", sub: "直売所の新鮮野菜や地ビール購入用" },
+                    { id: "c13", label: "保冷剤", sub: "乳製品や直売品を車内で痛ませないため" },
+                    { id: "c14", label: "消臭スプレー（ファブリーズ等）", sub: "焼肉後の車内や衣服のにおい対策" }
+                ]
+            }
+        ];
+
+        let state = JSON.parse(localStorage.getItem('hoicol_excursion_checklist') || '{}');
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = '';
+
+            let totalItems = 0;
+            let checkedCount = 0;
+
+            checklistData.forEach(cat => {
+                const groupEl = document.createElement('div');
+                groupEl.className = 'bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden';
+                
+                let itemsHtml = '';
+                cat.items.forEach(item => {
+                    totalItems++;
+                    const isChecked = !!state[item.id];
+                    if (isChecked) checkedCount++;
+
+                    itemsHtml += `
+                        <label class="flex items-start gap-3 p-3.5 border-t border-slate-100 cursor-pointer hover:bg-slate-50 transition select-none">
+                            <input type="checkbox" onchange="toggleCheck('${item.id}')" ${isChecked ? 'checked' : ''} 
+                                class="mt-0.5 w-5 h-5 rounded text-orange-500 focus:ring-orange-400 border-slate-300">
+                            <div class="${isChecked ? 'line-through text-slate-400' : 'text-slate-800'}">
+                                <div class="font-bold text-sm">${item.label}</div>
+                                <div class="text-xs text-slate-400 font-normal mt-0.5">${item.sub}</div>
+                            </div>
+                        </label>
+                    `;
+                });
+
+                groupEl.innerHTML = `
+                    <div class="bg-slate-50 px-4 py-2.5 font-bold text-xs text-slate-600 flex items-center gap-2 border-b border-slate-100">
+                        <i class="fa-solid ${cat.icon} text-orange-500"></i>
+                        <span>${cat.category}</span>
+                    </div>
+                    <div>${itemsHtml}</div>
+                `;
+                container.appendChild(groupEl);
+            });
+
+            const percent = totalItems > 0 ? Math.round((checkedCount / totalItems) * 100) : 0;
+            document.getElementById('progress-text').innerText = `${checkedCount} / ${totalItems} (${percent}%)`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        function toggleCheck(id) {
+            state[id] = !state[id];
+            localStorage.setItem('hoicol_excursion_checklist', JSON.stringify(state));
+            renderChecklist();
+        }
+
+        function resetChecklist() {
+            if (confirm("チェックリストを初期化しますか？")) {
+                state = {};
+                localStorage.removeItem('hoicol_excursion_checklist');
+                renderChecklist();
+            }
+        }
+
+        window.onload = renderChecklist;
+    </script>
+</body>
+</html>
